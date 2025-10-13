@@ -1,28 +1,32 @@
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { FileText, UserCheck, Clock, Mail } from 'lucide-react';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { FileText, UserCheck, Clock, Mail } from "lucide-react";
 
 export default function Referrals() {
   const steps = [
     {
-      icon: <FileText className="w-12 h-12 text-blue-500" />,
-      title: 'Complete Referral Form',
-      description: 'Fill out our online referral form or download and fax the PDF version.',
+      icon: <FileText className="w-12 h-12 text-primary-500" />,
+      title: "Complete Referral Form",
+      description:
+        "Fill out our online referral form or download and fax the PDF version.",
     },
     {
-      icon: <UserCheck className="w-12 h-12 text-blue-500" />,
-      title: 'We Review the Referral',
-      description: 'Our team will review the patient information and medical history.',
+      icon: <UserCheck className="w-12 h-12 text-primary-500" />,
+      title: "We Review the Referral",
+      description:
+        "Our team will review the patient information and medical history.",
     },
     {
-      icon: <Clock className="w-12 h-12 text-blue-500" />,
-      title: 'Schedule Appointment',
-      description: 'We\'ll contact the patient directly to schedule their initial consultation.',
+      icon: <Clock className="w-12 h-12 text-primary-500" />,
+      title: "Schedule Appointment",
+      description:
+        "We'll contact the patient directly to schedule their initial consultation.",
     },
     {
-      icon: <Mail className="w-12 h-12 text-blue-500" />,
-      title: 'Stay Informed',
-      description: 'Receive updates on your patient\'s treatment progress with their consent.',
+      icon: <Mail className="w-12 h-12 text-primary-500" />,
+      title: "Stay Informed",
+      description:
+        "Receive updates on your patient's treatment progress with their consent.",
     },
   ];
 
@@ -36,7 +40,8 @@ export default function Referrals() {
             Provider Referrals
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            We welcome referrals from primary care providers, therapists, and other healthcare professionals.
+            We welcome referrals from primary care providers, therapists, and
+            other healthcare professionals.
           </p>
         </div>
       </section>
@@ -50,13 +55,23 @@ export default function Referrals() {
               </h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  At Brigade Clinic, we believe the best patient outcomes come from strong collaboration between healthcare providers. We're committed to working closely with referring physicians, therapists, and care teams to ensure comprehensive, coordinated treatment.
+                  At Brigade Clinic, we believe the best patient outcomes come
+                  from strong collaboration between healthcare providers. We're
+                  committed to working closely with referring physicians,
+                  therapists, and care teams to ensure comprehensive,
+                  coordinated treatment.
                 </p>
                 <p>
-                  When you refer a patient to us, you can trust that they'll receive expert psychiatric evaluation and evidence-based treatment. We maintain open communication throughout the treatment process and provide detailed updates on patient progress.
+                  When you refer a patient to us, you can trust that they'll
+                  receive expert psychiatric evaluation and evidence-based
+                  treatment. We maintain open communication throughout the
+                  treatment process and provide detailed updates on patient
+                  progress.
                 </p>
                 <p>
-                  Our collaborative approach ensures that psychiatric care is integrated seamlessly with the patient's overall healthcare plan, supporting better outcomes and continuity of care.
+                  Our collaborative approach ensures that psychiatric care is
+                  integrated seamlessly with the patient's overall healthcare
+                  plan, supporting better outcomes and continuity of care.
                 </p>
               </div>
             </div>
@@ -86,11 +101,15 @@ export default function Referrals() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-500 hover-scale shadow-lg transition-all duration-300 text-center"
+                className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-primary-500 hover-scale shadow-lg transition-all duration-300 text-center"
               >
                 <div className="flex justify-center mb-6">{step.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
@@ -104,11 +123,14 @@ export default function Referrals() {
           </h2>
           <div className="bg-blue-50 rounded-2xl p-8">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              To help us provide the best care for your patient, please include the following information with your referral:
+              To help us provide the best care for your patient, please include
+              the following information with your referral:
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Patient Information:</h3>
+                <h3 className="font-semibold text-gray-900 mb-3">
+                  Patient Information:
+                </h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• Full name and date of birth</li>
                   <li>• Contact information</li>
@@ -117,7 +139,9 @@ export default function Referrals() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Clinical Information:</h3>
+                <h3 className="font-semibold text-gray-900 mb-3">
+                  Clinical Information:
+                </h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• Reason for referral</li>
                   <li>• Current medications</li>
@@ -146,13 +170,20 @@ export default function Referrals() {
               </h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Once we receive your referral, our intake coordinator will contact the patient within 24-48 hours to schedule an initial psychiatric evaluation.
+                  Once we receive your referral, our intake coordinator will
+                  contact the patient within 24-48 hours to schedule an initial
+                  psychiatric evaluation.
                 </p>
                 <p>
-                  After the evaluation, we'll develop a comprehensive treatment plan and communicate our findings and recommendations back to you, with the patient's consent.
+                  After the evaluation, we'll develop a comprehensive treatment
+                  plan and communicate our findings and recommendations back to
+                  you, with the patient's consent.
                 </p>
                 <p>
-                  Throughout the treatment process, we'll keep you informed of significant developments, medication changes, and overall progress. We welcome ongoing communication and consultation regarding patient care.
+                  Throughout the treatment process, we'll keep you informed of
+                  significant developments, medication changes, and overall
+                  progress. We welcome ongoing communication and consultation
+                  regarding patient care.
                 </p>
               </div>
             </div>
@@ -167,7 +198,8 @@ export default function Referrals() {
           </h2>
           <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg text-center">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Have questions about the referral process? Our dedicated referral coordinator is here to help.
+              Have questions about the referral process? Our dedicated referral
+              coordinator is here to help.
             </p>
             <div className="space-y-3 text-gray-700">
               <p className="text-lg">

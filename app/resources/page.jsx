@@ -1,74 +1,88 @@
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { BookOpen, Phone, FileText, HelpCircle, ExternalLink } from 'lucide-react';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import {
+  BookOpen,
+  Phone,
+  FileText,
+  HelpCircle,
+  ExternalLink,
+} from "lucide-react";
 
 export default function Resources() {
   const emergencyResources = [
     {
-      name: 'National Suicide Prevention Lifeline',
-      contact: '988',
-      description: '24/7 free and confidential support for people in distress.',
+      name: "National Suicide Prevention Lifeline",
+      contact: "988",
+      description: "24/7 free and confidential support for people in distress.",
     },
     {
-      name: 'Crisis Text Line',
-      contact: 'Text HOME to 741741',
-      description: 'Free, 24/7 crisis support via text message.',
+      name: "Crisis Text Line",
+      contact: "Text HOME to 741741",
+      description: "Free, 24/7 crisis support via text message.",
     },
     {
-      name: 'SAMHSA National Helpline',
-      contact: '1-800-662-4357',
-      description: 'Treatment referral and information service for mental health and substance use.',
+      name: "SAMHSA National Helpline",
+      contact: "1-800-662-4357",
+      description:
+        "Treatment referral and information service for mental health and substance use.",
     },
     {
-      name: 'Emergency Services',
-      contact: '911',
-      description: 'For immediate emergency medical assistance.',
+      name: "Emergency Services",
+      contact: "911",
+      description: "For immediate emergency medical assistance.",
     },
   ];
 
   const educationalResources = [
     {
-      icon: <BookOpen className="w-8 h-8 text-blue-500" />,
-      title: 'Understanding Depression',
-      description: 'Learn about symptoms, causes, and treatment options for depression.',
+      icon: <BookOpen className="w-8 h-8 text-primary-500" />,
+      title: "Understanding Depression",
+      description:
+        "Learn about symptoms, causes, and treatment options for depression.",
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-blue-500" />,
-      title: 'Managing Anxiety',
-      description: 'Practical strategies and information about anxiety disorders.',
+      icon: <BookOpen className="w-8 h-8 text-primary-500" />,
+      title: "Managing Anxiety",
+      description:
+        "Practical strategies and information about anxiety disorders.",
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-blue-500" />,
-      title: 'Medication Guide',
-      description: 'Information about psychiatric medications and what to expect.',
+      icon: <BookOpen className="w-8 h-8 text-primary-500" />,
+      title: "Medication Guide",
+      description:
+        "Information about psychiatric medications and what to expect.",
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-blue-500" />,
-      title: 'Mental Health & Wellness',
-      description: 'Tips for maintaining good mental health and overall wellbeing.',
+      icon: <BookOpen className="w-8 h-8 text-primary-500" />,
+      title: "Mental Health & Wellness",
+      description:
+        "Tips for maintaining good mental health and overall wellbeing.",
     },
   ];
 
   const supportOrganizations = [
     {
-      name: 'National Alliance on Mental Illness (NAMI)',
-      description: 'Education, support, and advocacy for individuals and families affected by mental illness.',
-      website: 'nami.org',
+      name: "National Alliance on Mental Illness (NAMI)",
+      description:
+        "Education, support, and advocacy for individuals and families affected by mental illness.",
+      website: "nami.org",
     },
     {
-      name: 'Mental Health America',
-      description: 'Community-based mental health resources and screening tools.',
-      website: 'mhanational.org',
+      name: "Mental Health America",
+      description:
+        "Community-based mental health resources and screening tools.",
+      website: "mhanational.org",
     },
     {
-      name: 'Anxiety and Depression Association of America (ADAA)',
-      description: 'Information and resources for anxiety and depression disorders.',
-      website: 'adaa.org',
+      name: "Anxiety and Depression Association of America (ADAA)",
+      description:
+        "Information and resources for anxiety and depression disorders.",
+      website: "adaa.org",
     },
     {
-      name: 'Depression and Bipolar Support Alliance (DBSA)',
-      description: 'Peer support and wellness tools for mood disorders.',
-      website: 'dbsalliance.org',
+      name: "Depression and Bipolar Support Alliance (DBSA)",
+      description: "Peer support and wellness tools for mood disorders.",
+      website: "dbsalliance.org",
     },
   ];
 
@@ -82,7 +96,8 @@ export default function Resources() {
             Patient Resources
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Information, support, and tools to help you on your mental health journey.
+            Information, support, and tools to help you on your mental health
+            journey.
           </p>
         </div>
       </section>
@@ -97,14 +112,21 @@ export default function Resources() {
                   In Crisis? Get Help Now
                 </h2>
                 <p className="text-red-800 mb-6 leading-relaxed">
-                  If you're experiencing a mental health emergency, please reach out immediately. Help is available 24/7.
+                  If you're experiencing a mental health emergency, please reach
+                  out immediately. Help is available 24/7.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   {emergencyResources.map((resource, index) => (
                     <div key={index} className="bg-white rounded-lg p-4 shadow">
-                      <h3 className="font-bold text-gray-900 mb-2">{resource.name}</h3>
-                      <p className="text-2xl font-bold text-red-600 mb-2">{resource.contact}</p>
-                      <p className="text-gray-600 text-sm">{resource.description}</p>
+                      <h3 className="font-bold text-gray-900 mb-2">
+                        {resource.name}
+                      </h3>
+                      <p className="text-2xl font-bold text-red-600 mb-2">
+                        {resource.contact}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        {resource.description}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -129,14 +151,18 @@ export default function Resources() {
             {educationalResources.map((resource, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-500 hover-scale shadow-lg transition-all duration-300"
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-primary-500 hover-scale shadow-lg transition-all duration-300"
               >
                 <div className="mb-4">{resource.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{resource.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{resource.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">
+                  {resource.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  {resource.description}
+                </p>
                 <a
                   href="#"
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                  className="inline-flex items-center text-primary-600 font-semibold hover:text-blue-700 transition-colors"
                 >
                   Read More
                   <ExternalLink className="ml-2" size={16} />
@@ -154,7 +180,8 @@ export default function Resources() {
               Support Organizations
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Connect with national organizations dedicated to mental health support and advocacy.
+              Connect with national organizations dedicated to mental health
+              support and advocacy.
             </p>
           </div>
 
@@ -162,15 +189,19 @@ export default function Resources() {
             {supportOrganizations.map((org, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-500 transition-all duration-300 shadow"
+                className="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-primary-500 transition-all duration-300 shadow"
               >
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">{org.name}</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{org.description}</p>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  {org.name}
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  {org.description}
+                </p>
                 <a
                   href={`https://${org.website}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                  className="inline-flex items-center text-primary-600 font-semibold hover:text-blue-700 transition-colors"
                 >
                   {org.website}
                   <ExternalLink className="ml-2" size={16} />
@@ -189,24 +220,27 @@ export default function Resources() {
                 Patient Forms & Documents
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Download and complete these forms before your appointment to help us serve you better.
+                Download and complete these forms before your appointment to
+                help us serve you better.
               </p>
               <div className="space-y-4">
                 {[
-                  'New Patient Registration Form',
-                  'Medical History Questionnaire',
-                  'Insurance Information Form',
-                  'HIPAA Authorization',
-                  'Financial Policy',
+                  "New Patient Registration Form",
+                  "Medical History Questionnaire",
+                  "Insurance Information Form",
+                  "HIPAA Authorization",
+                  "Financial Policy",
                 ].map((form, index) => (
                   <a
                     key={index}
                     href="#"
-                    className="flex items-center space-x-4 bg-white rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-all duration-300 shadow group"
+                    className="flex items-center space-x-4 bg-white rounded-lg p-4 border border-gray-200 hover:border-primary-500 transition-all duration-300 shadow group"
                   >
-                    <FileText className="w-6 h-6 text-blue-500" />
-                    <span className="text-gray-800 font-medium flex-1">{form}</span>
-                    <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                    <FileText className="w-6 h-6 text-primary-500" />
+                    <span className="text-gray-800 font-medium flex-1">
+                      {form}
+                    </span>
+                    <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-primary-500 transition-colors" />
                   </a>
                 ))}
               </div>
@@ -225,12 +259,13 @@ export default function Resources() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-blue-50 rounded-2xl p-8 text-center">
-            <HelpCircle className="w-16 h-16 text-blue-500 mx-auto mb-6" />
+            <HelpCircle className="w-16 h-16 text-primary-500 mx-auto mb-6" />
             <h2 className="text-3xl font-bold mb-4 text-gray-900">
               Have Questions?
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Our team is here to help. Contact us with any questions about our services, insurance, or how to get started.
+              Our team is here to help. Contact us with any questions about our
+              services, insurance, or how to get started.
             </p>
             <a
               href="/contact"
