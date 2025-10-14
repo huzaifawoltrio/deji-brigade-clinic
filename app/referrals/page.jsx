@@ -1,34 +1,48 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FileText, UserCheck, Clock, Mail } from "lucide-react";
+import { CheckCircle, Download, FileText, Send } from "lucide-react";
 
 export default function Referrals() {
-  const steps = [
-    {
-      icon: <FileText className="w-12 h-12 text-primary-500" />,
-      title: "Complete Referral Form",
-      description:
-        "Fill out our online referral form or download and fax the PDF version.",
-    },
-    {
-      icon: <UserCheck className="w-12 h-12 text-primary-500" />,
-      title: "We Review the Referral",
-      description:
-        "Our team will review the patient information and medical history.",
-    },
-    {
-      icon: <Clock className="w-12 h-12 text-primary-500" />,
-      title: "Schedule Appointment",
-      description:
-        "We'll contact the patient directly to schedule their initial consultation.",
-    },
-    {
-      icon: <Mail className="w-12 h-12 text-primary-500" />,
-      title: "Stay Informed",
-      description:
-        "Receive updates on your patient's treatment progress with their consent.",
-    },
-  ];
+  const [formData, setFormData] = useState({
+    referrerName: "",
+    practiceName: "",
+    referrerEmail: "",
+    patientName: "",
+    patientPhone: "",
+    reason: "",
+    attachment: null,
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === "attachment") {
+      setFormData({ ...formData, attachment: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({
+        referrerName: "",
+        practiceName: "",
+        referrerEmail: "",
+        patientName: "",
+        patientPhone: "",
+        reason: "",
+        attachment: null,
+      });
+    }, 5000);
+  };
 
   return (
     <div className="min-h-screen">
@@ -37,190 +51,249 @@ export default function Referrals() {
       <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-            Provider Referrals
+            Refer a Patient
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            We welcome referrals from primary care providers, therapists, and
-            other healthcare professionals.
+            Easily refer patients for outpatient psychiatry or TMS at Brigade
+            Clinic. We coordinate directly with hospitals, case managers, and
+            social workers.
           </p>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                Collaborative Care Partnership
-              </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  At Brigade Clinic, we believe the best patient outcomes come
-                  from strong collaboration between healthcare providers. We're
-                  committed to working closely with referring physicians,
-                  therapists, and care teams to ensure comprehensive,
-                  coordinated treatment.
-                </p>
-                <p>
-                  When you refer a patient to us, you can trust that they'll
-                  receive expert psychiatric evaluation and evidence-based
-                  treatment. We maintain open communication throughout the
-                  treatment process and provide detailed updates on patient
-                  progress.
-                </p>
-                <p>
-                  Our collaborative approach ensures that psychiatric care is
-                  integrated seamlessly with the patient's overall healthcare
-                  plan, supporting better outcomes and continuity of care.
-                </p>
-              </div>
-            </div>
-            <div>
-              <img
-                src="https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Collaborative healthcare"
-                className="rounded-2xl shadow-2xl w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              How to Refer a Patient
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              For Hospitals, Case Managers, and Providers
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our referral process is simple and straightforward.
+            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              We make psychiatric transitions seamless for recently discharged
+              patients or those needing outpatient follow-up. Our goal is to
+              ensure continuity of care by providing prompt, reliable, and
+              expert psychiatric services.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-primary-500 hover-scale shadow-lg transition-all duration-300 text-center"
-              >
-                <div className="flex justify-center mb-6">{step.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-gray-900 text-center">
-            Required Information
-          </h2>
-          <div className="bg-blue-50 rounded-2xl p-8">
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              To help us provide the best care for your patient, please include
-              the following information with your referral:
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Patient Information:
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  How to Refer
                 </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Full name and date of birth</li>
-                  <li>• Contact information</li>
-                  <li>• Insurance details</li>
-                  <li>• Emergency contact</li>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-primary-500 mt-1" />
+                    <span>Complete our secure online referral form.</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-primary-500 mt-1" />
+                    <span>
+                      Attach discharge summary or relevant clinical notes.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-primary-500 mt-1" />
+                    <span>
+                      Alternatively, fax or email us at:
+                      <br />
+                      <span className="font-semibold text-gray-800">
+                        📧 referrals@brigadephysicians.com
+                      </span>
+                      <br />
+                    </span>
+                  </li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Clinical Information:
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  Our Team Will:
                 </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Reason for referral</li>
-                  <li>• Current medications</li>
-                  <li>• Relevant medical history</li>
-                  <li>• Previous psychiatric treatment</li>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-primary-500 mt-1" />
+                    <span>Contact the patient within one business day.</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-primary-500 mt-1" />
+                    <span>Verify insurance coverage and benefits.</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-primary-500 mt-1" />
+                    <span>
+                      Schedule promptly and confirm the appointment with the
+                      referring provider.
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <img
-                src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Professional communication"
-                className="rounded-2xl shadow-2xl w-full"
-              />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                What Happens After Referral
-              </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  Once we receive your referral, our intake coordinator will
-                  contact the patient within 24-48 hours to schedule an initial
-                  psychiatric evaluation.
-                </p>
-                <p>
-                  After the evaluation, we'll develop a comprehensive treatment
-                  plan and communicate our findings and recommendations back to
-                  you, with the patient's consent.
-                </p>
-                <p>
-                  Throughout the treatment process, we'll keep you informed of
-                  significant developments, medication changes, and overall
-                  progress. We welcome ongoing communication and consultation
-                  regarding patient care.
+          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 shadow-lg">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">
+              Secure Referral Form
+            </h2>
+            {submitted ? (
+              <div className="text-center p-8 bg-green-50 rounded-lg">
+                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-green-800">
+                  Referral Submitted
+                </h3>
+                <p className="text-green-700">
+                  Thank you! We will contact the patient shortly.
                 </p>
               </div>
-            </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="referrerName"
+                      className="block text-gray-700 font-medium mb-2"
+                    >
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="referrerName"
+                      name="referrerName"
+                      required
+                      value={formData.referrerName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="practiceName"
+                      className="block text-gray-700 font-medium mb-2"
+                    >
+                      Hospital/Practice Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="practiceName"
+                      name="practiceName"
+                      required
+                      value={formData.practiceName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="referrerEmail"
+                    className="block text-gray-700 font-medium mb-2"
+                  >
+                    Your Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="referrerEmail"
+                    name="referrerEmail"
+                    required
+                    value={formData.referrerEmail}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                  />
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="patientName"
+                      className="block text-gray-700 font-medium mb-2"
+                    >
+                      Patient Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="patientName"
+                      name="patientName"
+                      required
+                      value={formData.patientName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="patientPhone"
+                      className="block text-gray-700 font-medium mb-2"
+                    >
+                      Patient Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      id="patientPhone"
+                      name="patientPhone"
+                      required
+                      value={formData.patientPhone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="reason"
+                    className="block text-gray-700 font-medium mb-2"
+                  >
+                    Reason for Referral *
+                  </label>
+                  <textarea
+                    id="reason"
+                    name="reason"
+                    required
+                    rows="4"
+                    value={formData.reason}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none"
+                  ></textarea>
+                </div>
+                <div>
+                  <label
+                    htmlFor="attachment"
+                    className="block text-gray-700 font-medium mb-2"
+                  >
+                    Attach Clinical Notes (Optional)
+                  </label>
+                  <input
+                    type="file"
+                    id="attachment"
+                    name="attachment"
+                    onChange={handleChange}
+                    className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full gradient-blue text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2"
+                >
+                  <span>Submit Referral</span>
+                  <Send size={20} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-gray-900 text-center">
-            Contact Our Referral Coordinator
+      <section className="py-24 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <FileText className="w-16 h-16 text-primary-500 mx-auto mb-6" />
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            Download Referral Form
           </h2>
-          <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg text-center">
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Have questions about the referral process? Our dedicated referral
-              coordinator is here to help.
-            </p>
-            <div className="space-y-3 text-gray-700">
-              <p className="text-lg">
-                <strong>Phone:</strong> (555) 123-4567 ext. 2
-              </p>
-              <p className="text-lg">
-                <strong>Email:</strong> referrals@brigadeclinic.com
-              </p>
-              <p className="text-lg">
-                <strong>Fax:</strong> (555) 123-4568
-              </p>
-            </div>
-            <div className="mt-8">
-              <a
-                href="mailto:referrals@brigadeclinic.com"
-                className="inline-block gradient-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover-lift shadow-lg"
-              >
-                Send a Referral
-              </a>
-            </div>
-          </div>
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            Prefer a paper form? Download our PDF referral form to complete and
+            fax or email to our office.
+          </p>
+          <a
+            href="/path-to-your-referral-form.pdf" // <-- IMPORTANT: Replace with the actual path to your PDF file
+            download
+            className="inline-flex items-center bg-white text-primary-600 px-8 py-4 rounded-full text-lg font-semibold hover-lift shadow-lg border border-primary-200"
+          >
+            <Download className="mr-2" size={20} />
+            Download PDF
+          </a>
         </div>
       </section>
 

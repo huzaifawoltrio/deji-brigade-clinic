@@ -1,32 +1,29 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Heart, Award, Users, Target } from "lucide-react";
+import { Heart, Target } from "lucide-react";
 
 export default function About() {
-  const values = [
+  const teamMembers = [
     {
-      icon: <Heart className="w-12 h-12 text-primary-500" />,
-      title: "Compassionate Care",
-      description:
-        "We treat every patient with empathy, respect, and genuine concern for their wellbeing.",
+      name: "Dr. Amanda Chen, MD",
+      role: "Lead Psychiatrist & Founder",
+      imageUrl:
+        "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=800",
+      bio: "Dr. Chen is a board-certified psychiatrist with over 15 years of experience in treating complex mood and anxiety disorders. She founded Brigade Clinic with the vision of creating a space for truly personalized and compassionate mental health care.",
     },
     {
-      icon: <Award className="w-12 h-12 text-primary-500" />,
-      title: "Clinical Excellence",
-      description:
-        "Our team maintains the highest standards of psychiatric practice and evidence-based treatment.",
+      name: "David Miller, PMHNP-BC",
+      role: "Psychiatric Nurse Practitioner",
+      imageUrl:
+        "https://images.pexels.com/photos/8460157/pexels-photo-8460157.jpeg?auto=compress&cs=tinysrgb&w=800",
+      bio: "David specializes in medication management and TMS therapy. He is passionate about using innovative treatments to help patients achieve remission and improve their quality of life.",
     },
     {
-      icon: <Users className="w-12 h-12 text-primary-500" />,
-      title: "Collaborative Approach",
-      description:
-        "We work together with patients and their care team to achieve the best possible outcomes.",
-    },
-    {
-      icon: <Target className="w-12 h-12 text-primary-500" />,
-      title: "Personalized Treatment",
-      description:
-        "Every treatment plan is tailored to the unique needs and goals of each individual patient.",
+      name: "Sarah Kim, LPC",
+      role: "Collaborative Care Manager",
+      imageUrl:
+        "https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=800",
+      bio: "Sarah coordinates care between our providers, therapists, and referring physicians. Her goal is to ensure every patient receives seamless, integrated, and effective treatment.",
     },
   ];
 
@@ -40,136 +37,82 @@ export default function About() {
             About Brigade Clinic
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            A modern psychiatric practice dedicated to transforming mental
-            health care through compassion, innovation, and clinical excellence.
+            Learn about Brigade Clinic — a compassionate psychiatry and TMS
+            clinic serving Georgia and South Carolina.
           </p>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <img
-                src="https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Our clinic"
-                className="rounded-2xl shadow-2xl w-full"
-              />
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <img
+              src="https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Clinic interior"
+              className="rounded-2xl shadow-2xl w-full"
+            />
+          </div>
+          <div>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold mb-6 text-gray-900 flex items-center">
+                <Target className="w-10 h-10 mr-4 text-primary-500" />
+                Our Mission
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                At Brigade Physicians, our mission is to provide accessible,
+                evidence-based mental health care that empowers every patient to
+                live a fulfilling life. We believe in holistic treatment —
+                combining medication, therapy, and modern innovations like TMS
+                to support mind and body wellness.
+              </p>
             </div>
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                Our Story
+              <h2 className="text-4xl font-bold mb-6 text-gray-900 flex items-center">
+                <Heart className="w-10 h-10 mr-4 text-primary-500" />
+                Our Philosophy
               </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  Brigade Clinic was founded with a clear vision: to make
-                  high-quality psychiatric care accessible, personalized, and
-                  genuinely effective for everyone who needs it.
-                </p>
-                <p>
-                  We recognized that traditional mental health care often feels
-                  impersonal, rushed, or difficult to access. That's why we
-                  built a practice centered on the individual, offering flexible
-                  appointment options, comprehensive treatment modalities, and a
-                  team that truly listens.
-                </p>
-                <p>
-                  Today, we're proud to serve our community with a full range of
-                  psychiatric services, from medication management to
-                  cutting-edge TMS therapy, all delivered with the care and
-                  attention every person deserves.
-                </p>
-              </div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                We focus on personalized care, clinical excellence, and
+                community connection. Our goal is to make mental-health services
+                approachable and stigma-free for everyone we serve.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Our Core Values
+              Meet Our Team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              These principles guide everything we do at Brigade Clinic.
+              Our providers are dedicated to your mental wellness, bringing
+              years of experience and a compassionate approach to every patient.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-primary-500 hover-scale shadow-lg transition-all duration-300"
+                className="bg-white rounded-2xl p-8 border border-gray-200 text-center shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className="mb-6">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">
-                  {value.title}
+                <img
+                  src={member.imageUrl}
+                  alt={member.name}
+                  className="w-32 h-32 rounded-full mx-auto mb-6"
+                />
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                  {member.name}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {value.description}
+                <p className="text-primary-500 font-semibold mb-4">
+                  {member.role}
                 </p>
+                <p className="text-gray-600 leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                Our Team
-              </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  Our psychiatric team consists of board-certified
-                  psychiatrists, nurse practitioners, and support staff who are
-                  passionate about mental health care. Each member brings years
-                  of clinical experience, advanced training, and a genuine
-                  commitment to patient wellbeing.
-                </p>
-                <p>
-                  We believe in continuous learning and staying current with the
-                  latest advances in psychiatric treatment. Our team regularly
-                  participates in professional development, clinical research,
-                  and collaborative learning to ensure we provide the most
-                  effective care possible.
-                </p>
-                <p>
-                  What sets us apart is not just our clinical expertise, but our
-                  approach to care. We take the time to listen, understand, and
-                  build lasting therapeutic relationships with every patient.
-                </p>
-              </div>
-            </div>
-            <div>
-              <img
-                src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Our team"
-                className="rounded-2xl shadow-2xl w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-6 gradient-blue">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Join Our Community of Care
-          </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Experience the difference that personalized, compassionate
-            psychiatric care can make.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-white text-primary-600 px-8 py-4 rounded-full text-lg font-semibold hover-lift shadow-2xl"
-          >
-            Schedule Your Consultation
-          </a>
         </div>
       </section>
 

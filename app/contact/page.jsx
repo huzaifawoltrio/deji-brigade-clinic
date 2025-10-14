@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Printer } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -33,26 +33,27 @@ export default function Contact() {
     {
       icon: <Phone className="w-8 h-8 text-primary-500" />,
       title: "Phone",
-      details: ["(555) 123-4567", "Monday - Friday, 8am - 6pm"],
+      details: ["706-471-8845"],
     },
     {
       icon: <Mail className="w-8 h-8 text-primary-500" />,
       title: "Email",
-      details: ["info@brigadeclinic.com", "We respond within 24 hours"],
+      details: ["intake@brigadephysicians.com"],
     },
     {
       icon: <MapPin className="w-8 h-8 text-primary-500" />,
       title: "Location",
-      details: ["123 Wellness Avenue", "Suite 200", "City, State 12345"],
+      details: ["1285 Marks Church Road, STE D", "Augusta GA 30909"],
     },
     {
       icon: <Clock className="w-8 h-8 text-primary-500" />,
       title: "Hours",
-      details: [
-        "Monday - Friday: 8am - 6pm",
-        "Saturday: 9am - 2pm",
-        "Sunday: Closed",
-      ],
+      details: ["Monday - Friday: 8am - 5pm"],
+    },
+    {
+      icon: <Printer className="w-8 h-8 text-primary-500" />,
+      title: "Fax",
+      details: ["706-471-8897"],
     },
   ];
 
@@ -66,15 +67,15 @@ export default function Contact() {
             Contact Us
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            We're here to answer your questions and help you get started with
-            compassionate psychiatric care.
+            Schedule appointments or send referrals to Brigade Clinic in
+            Augusta, GA. Serving patients across Georgia and South Carolina.
           </p>
         </div>
       </section>
 
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
@@ -86,7 +87,7 @@ export default function Contact() {
                 </h3>
                 <div className="space-y-1">
                   {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-600">
+                    <p key={idx} className="text-gray-600 break-all">
                       {detail}
                     </p>
                   ))}
@@ -231,98 +232,23 @@ export default function Contact() {
                 <h2 className="text-3xl font-bold mb-6 text-gray-900">
                   Visit Our Office
                 </h2>
-                <div className="bg-gray-300 rounded-xl h-64 mb-6 flex items-center justify-center">
-                  <MapPin className="w-16 h-16 text-gray-500" />
-                </div>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      Address
-                    </h3>
-                    <p className="text-gray-600">
-                      123 Wellness Avenue
-                      <br />
-                      Suite 200
-                      <br />
-                      City, State 12345
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      Parking
-                    </h3>
-                    <p className="text-gray-600">
-                      Free parking is available in the building garage. Guest
-                      parking spaces are located on Level 2.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      Accessibility
-                    </h3>
-                    <p className="text-gray-600">
-                      Our office is wheelchair accessible with elevator access
-                      from the parking garage.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      Public Transportation
-                    </h3>
-                    <p className="text-gray-600">
-                      Located near bus routes 12, 45, and 67. Metro station is 2
-                      blocks away.
-                    </p>
-                  </div>
+                <div className="bg-gray-300 rounded-xl h-96 mb-6">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    style={{ border: 0, borderRadius: "1rem" }}
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.718694017291!2d-82.0833923847998!3d33.46881798077241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f9cc0031855555%3A0x5e52a4e4a4b2a4a4!2s1285%20Marks%20Church%20Rd%20STE%20D%2C%20Augusta%2C%20GA%2030909%2C%20USA!5e0!3m2!1sen!2s!4v1633542845947!5m2!1sen!2s"
+                    allowFullScreen=""
+                    aria-hidden="false"
+                    tabIndex="0"
+                  ></iframe>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-gray-900 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                question: "Do you accept insurance?",
-                answer:
-                  "Yes, we accept most major insurance plans. Please contact our office to verify your specific coverage.",
-              },
-              {
-                question: "What should I bring to my first appointment?",
-                answer:
-                  "Please bring a valid ID, insurance card, list of current medications, and any relevant medical records.",
-              },
-              {
-                question: "Do you offer telepsychiatry appointments?",
-                answer:
-                  "Yes, we offer secure virtual appointments for your convenience. Ask about this option when scheduling.",
-              },
-              {
-                question: "How quickly can I get an appointment?",
-                answer:
-                  "We typically can schedule new patient appointments within 1-2 weeks. We also maintain some slots for urgent cases.",
-              },
-            ].map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow border border-gray-200"
-              >
-                <h3 className="text-xl font-bold mb-3 text-gray-900">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

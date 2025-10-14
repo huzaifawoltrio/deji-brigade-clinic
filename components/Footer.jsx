@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, Printer } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -7,10 +8,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-white text-xl font-bold mb-4">
-              Brigade Clinic
-            </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/logo.png"
+                alt="Brigade Clinic Logo"
+                width={150}
+                height={150}
+              />
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed mt-2">
               A modern psychiatric practice dedicated to providing
               compassionate, evidence-based mental health care.
             </p>
@@ -81,20 +87,22 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-3">
                 <Phone size={18} className="mt-0.5 flex-shrink-0" />
-                <span>(555) 123-4567</span>
+                <span>706-471-8845</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Mail size={18} className="mt-0.5 flex-shrink-0" />
-                <span>info@brigadeclinic.com</span>
+                <span>intake@brigadephysicians.com</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <Printer size={18} className="mt-0.5 flex-shrink-0" />
+                <span>Fax: 706-471-8897</span>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
                 <span>
-                  123 Wellness Avenue
+                  1285 Marks Church Road, STE D
                   <br />
-                  Suite 200
-                  <br />
-                  City, State 12345
+                  Augusta GA 30909
                 </span>
               </li>
             </ul>
@@ -114,10 +122,16 @@ export default function Footer() {
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href="/hipaa"
                 className="hover:text-primary-400 transition-colors"
               >
-                Terms of Service
+                HIPAA Notice
+              </Link>
+              <Link
+                href="/telehealth-consent"
+                className="hover:text-primary-400 transition-colors"
+              >
+                Telehealth Consent
               </Link>
             </div>
           </div>

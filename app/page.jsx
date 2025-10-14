@@ -38,46 +38,46 @@ export default function Home() {
       icon: <BrainIcon className="w-16 h-16 text-primary-500" />,
       title: "Medication Management",
       description:
-        "Expert psychiatric medication evaluation and ongoing management tailored to your unique needs.",
+        "Comprehensive evaluation and ongoing psychiatric care by experienced providers.",
     },
     {
       icon: <MonitorIcon className="w-16 h-16 text-primary-500" />,
       title: "Telepsychiatry",
       description:
-        "Convenient, secure virtual appointments that bring quality psychiatric care to you, wherever you are.",
+        "Secure online visits for patients across Georgia and South Carolina.",
     },
     {
       icon: <ZapIcon className="w-16 h-16 text-primary-500" />,
       title: "TMS Therapy",
       description:
-        "FDA-approved, non-invasive treatment for depression using advanced transcranial magnetic stimulation.",
+        "Non-invasive, FDA-approved treatment for depression, OCD, and PTSD.",
     },
     {
       icon: <LeafIcon className="w-16 h-16 text-primary-500" />,
       title: "Collaborative Care",
       description:
-        "Integrated approach working alongside your existing healthcare providers for comprehensive treatment.",
+        "Coordinated support between psychiatrists, therapists, and referring providers.",
     },
   ];
 
   const steps = [
     {
       number: "01",
-      title: "Contact Us",
+      title: "Request an Appointment",
       description:
-        "Reach out via phone, email, or our online form to begin your journey toward better mental health.",
+        "Complete our Request Appointment Form to let us know how we can help. Our team will verify your insurance coverage and inform you of any copays or deductibles before your visit.",
     },
     {
       number: "02",
-      title: "Initial Consultation",
+      title: "Complete Your Intake Form",
       description:
-        "Meet with our experienced psychiatric team for a comprehensive evaluation and personalized treatment plan.",
+        "We’ll send you a secure online Intake Form to learn more about your symptoms, history, and treatment goals. This allows your provider to prepare a personalized care plan tailored to your needs.",
     },
     {
       number: "03",
-      title: "Begin Treatment",
+      title: "Schedule Your Visit",
       description:
-        "Start your customized care plan with ongoing support and regular follow-ups to ensure optimal outcomes.",
+        "Once your information is received, our intake team will contact you to schedule your first appointment—either in person or through telepsychiatry—at a time that’s convenient for you.",
     },
   ];
 
@@ -104,7 +104,11 @@ export default function Home() {
             className="text-xl md:text-2xl mb-8 leading-relaxed fade-in opacity-90"
             style={{ animationDelay: "0.2s" }}
           >
-            Compassionate, Evidence-Based Psychiatric Care
+            Brigade Clinic is the outpatient division of Brigade Physicians. We
+            provide personalized psychiatric care designed to help you thrive.
+            We understand that every individual’s journey is unique — that’s why
+            we combine evidence-based medicine, innovative technology, and
+            compassionate support to help you achieve lasting wellness.
           </p>
           <Link
             href="/contact"
@@ -123,10 +127,6 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We offer a comprehensive range of psychiatric services designed to
-              support your mental health journey.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -163,19 +163,12 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
                 Why Choose Brigade Clinic
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                At Brigade Clinic, we believe mental health care should be
-                accessible, personalized, and rooted in the latest clinical
-                evidence. Our team combines years of experience with a genuine
-                commitment to your wellbeing.
-              </p>
               <ul className="space-y-4">
                 {[
-                  "Board-certified psychiatric expertise",
-                  "Flexible telepsychiatry options",
-                  "Evidence-based treatment approaches",
-                  "Collaborative care philosophy",
-                  "Cutting-edge TMS therapy",
+                  "Same-week appointments",
+                  "Trusted by hospitals and behavioral health programs across the Southeast",
+                  "Licensed psychiatrists and nurse practitioners",
+                  "Telehealth convenience with in-person support in Augusta, GA",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-3">
                     <CheckCircle2
@@ -198,8 +191,9 @@ export default function Home() {
               How to Get Started
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Beginning your mental health journey with us is simple and
-              straightforward.
+              Beginning your care with Brigade Clinic is simple and seamless.
+              Our goal is to make your first steps toward better mental health
+              as comfortable and stress-free as possible.
             </p>
           </div>
 
@@ -228,11 +222,10 @@ export default function Home() {
       <section className="py-24 px-6 gradient-blue">
         <div className="max-w-4xl mx-auto text-center animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Ready to Take the First Step?
+            Take the First Step Toward Healing
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Our compassionate team is here to support you. Schedule your
-            consultation today.
+            Request an appointment today.
           </p>
           <Link
             href="/contact"
