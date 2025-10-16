@@ -5,25 +5,32 @@ import { Heart, Target } from "lucide-react";
 export default function About() {
   const teamMembers = [
     {
-      name: "Dr. Amanda Chen, MD",
-      role: "Lead Psychiatrist & Founder",
+      name: "Obiora Agbimson, MD",
+      role: "Board-Certified Psychiatrist & Founder",
       imageUrl:
         "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=800",
-      bio: "Dr. Chen is a board-certified psychiatrist with over 15 years of experience in treating complex mood and anxiety disorders. She founded Brigade Clinic with the vision of creating a space for truly personalized and compassionate mental health care.",
+      bio: "Dr. Agbimson is a board-certified psychiatrist who specializes in psychosis, mood disorders, and ADHD. He has served as medical director in both inpatient and outpatient settings. He founded Brigade Physicians to provide exceptional psychiatric care irrespective of the care setting.",
     },
     {
-      name: "David Miller, PMHNP-BC",
-      role: "Psychiatric Nurse Practitioner",
+      name: "Ozioma Nwaigwe, MD",
+      role: "Board-Certified Psychiatrist",
       imageUrl:
         "https://images.pexels.com/photos/8460157/pexels-photo-8460157.jpeg?auto=compress&cs=tinysrgb&w=800",
-      bio: "David specializes in medication management and TMS therapy. He is passionate about using innovative treatments to help patients achieve remission and improve their quality of life.",
+      bio: "Dr. Nwaigwe is a board certified psychiatrist dedicated to guiding patients toward mental wellbeing. Her expertise includes managing mood and anxiety disorders in peripartum and adolescent populations. She has experience providing care across the life span.",
     },
     {
-      name: "Sarah Kim, LPC",
-      role: "Collaborative Care Manager",
+      name: "Denita Waltower, PMHNP",
+      role: "Psychiatric Mental Health Nurse Practitioner",
       imageUrl:
         "https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=800",
-      bio: "Sarah coordinates care between our providers, therapists, and referring physicians. Her goal is to ensure every patient receives seamless, integrated, and effective treatment.",
+      bio: "Is a board certified Psychiatric Mental health Nurse Practitioner with over a decade of diverse nursing experience. She combines evidenced-based practice with compassion and empathy.",
+    },
+    {
+      name: "D'andra Young, PMHNP",
+      role: "Psychiatric Mental Health Nurse Practitioner",
+      imageUrl:
+        "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800",
+      bio: "Is a board certified Psychiatric Mental health Nurse Practitioner. She is passionate about mental health and believes in collaborative care to achieve the best possible outcomes for her patients.",
     },
   ];
 

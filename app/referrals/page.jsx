@@ -95,7 +95,7 @@ export default function Referrals() {
                       Alternatively, fax or email us at:
                       <br />
                       <span className="font-semibold text-gray-800">
-                        📧 referrals@brigadephysicians.com
+                        📧 intake@brigadephysicians.com
                       </span>
                       <br />
                     </span>

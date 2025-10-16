@@ -101,7 +101,7 @@ export default function TmsTherapy() {
           </div>
           <div>
             <img
-              src="https://images.pexels.com/photos/8942125/pexels-photo-8942125.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              src="/1.jpg"
               alt="TMS Therapy"
               className="rounded-2xl shadow-2xl w-full"
             />

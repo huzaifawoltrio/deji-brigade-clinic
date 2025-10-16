@@ -7,11 +7,27 @@ export default function Services() {
   const services = [
     {
       icon: <Brain className="w-12 h-12 text-primary-500 mb-6" />,
+      title: "Diagnostic Evaluation",
+      description:
+        "Thorough psychiatric assessments to accurately diagnose mental health conditions and develop personalized treatment plans tailored to your unique needs.",
+      imageUrl:
+        "https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+      icon: <Brain className="w-12 h-12 text-primary-500 mb-6" />,
       title: "Medication Management",
       description:
         "Comprehensive psychiatric evaluations and ongoing medication management for mood, anxiety, and attention disorders.",
       imageUrl:
         "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+      icon: <Zap className="w-12 h-12 text-primary-500 mb-6" />,
+      title: "TMS Therapy",
+      description:
+        "Transcranial Magnetic Stimulation (TMS) is a non-invasive, FDA-approved treatment for depression, OCD, PTSD, and other mood disorders.",
+      imageUrl:
+        "/2.jpg",
     },
     {
       icon: <Monitor className="w-12 h-12 text-primary-500 mb-6" />,
@@ -20,22 +36,6 @@ export default function Services() {
         "Receive expert psychiatric care from the comfort of your home — available to Georgia and South Carolina residents.",
       imageUrl:
         "https://images.pexels.com/photos/5217852/pexels-photo-5217852.jpeg",
-    },
-    {
-      icon: <Zap className="w-12 h-12 text-primary-500 mb-6" />,
-      title: "TMS Therapy",
-      description:
-        "Transcranial Magnetic Stimulation (TMS) is a non-invasive, FDA-approved treatment for depression, OCD, PTSD, and other mood disorders.",
-      imageUrl:
-        "https://images.pexels.com/photos/8942125/pexels-photo-8942125.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    },
-    {
-      icon: <Brain className="w-12 h-12 text-primary-500 mb-6" />,
-      title: "Diagnostic Evaluation",
-      description:
-        "Thorough psychiatric assessments to accurately diagnose mental health conditions and develop personalized treatment plans tailored to your unique needs.",
-      imageUrl:
-        "https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
   ];
 
