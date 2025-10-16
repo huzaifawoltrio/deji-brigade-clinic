@@ -29,6 +29,14 @@ export default function Services() {
       imageUrl:
         "https://images.pexels.com/photos/8942125/pexels-photo-8942125.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
+    {
+      icon: <Brain className="w-12 h-12 text-primary-500 mb-6" />,
+      title: "Diagnostic Evaluation",
+      description:
+        "Thorough psychiatric assessments to accurately diagnose mental health conditions and develop personalized treatment plans tailored to your unique needs.",
+      imageUrl:
+        "https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
   ];
 
   return (
@@ -49,39 +57,41 @@ export default function Services() {
 
       <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-20">
+          <div className="grid md:grid-cols-1 gap-12">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`grid lg:grid-cols-2 gap-16 items-center ${
-                  index % 2 !== 0 ? "lg:grid-flow-col-dense" : ""
-                }`}
+                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
               >
-                <div className={` ${index % 2 !== 0 ? "lg:col-start-2" : ""}`}>
-                  {service.icon}
-                  <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                    {service.description}
-                  </p>
-                  <Link
-                    href={
-                      service.title === "TMS Therapy"
-                        ? "/tms-therapy"
-                        : "/contact"
-                    }
-                    className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-800"
-                  >
-                    Learn More <ArrowRight className="ml-2" size={20} />
-                  </Link>
-                </div>
-                <div className={` ${index % 2 !== 0 ? "lg:col-start-1" : ""}`}>
-                  <img
-                    src={service.imageUrl}
-                    alt={service.title}
-                    className="rounded-2xl shadow-2xl w-full"
-                  />
+                <div className="grid lg:grid-cols-2 gap-0">
+                  <div className="relative h-80 lg:h-auto">
+                    <img
+                      src={service.imageUrl}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-12 flex flex-col justify-center">
+                    <div className="mb-6">{service.icon}</div>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                      {service.title}
+                    </h2>
+                    <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                      {service.description}
+                    </p>
+                    <div>
+                      <Link
+                        href={
+                          service.title === "TMS Therapy"
+                            ? "/tms-therapy"
+                            : "/contact"
+                        }
+                        className="inline-flex items-center gradient-blue text-white px-6 py-3 rounded-full font-semibold hover-lift shadow-lg"
+                      >
+                        Learn More <ArrowRight className="ml-2" size={20} />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

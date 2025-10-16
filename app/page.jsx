@@ -169,6 +169,11 @@ export default function Home() {
                   "Trusted by hospitals and behavioral health programs across the Southeast",
                   "Licensed psychiatrists and nurse practitioners",
                   "Telehealth convenience with in-person support in Augusta, GA",
+                  "Board-certified psychiatric expertise",
+                  "Flexible telepsychiatry options",
+                  "Evidence-based treatment approaches",
+                  "Collaborative care philosophy",
+                  "Cutting-edge TMS therapy",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-3">
                     <CheckCircle2
