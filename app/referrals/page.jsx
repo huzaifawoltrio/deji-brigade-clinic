@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CheckCircle, Download, FileText, Send } from "lucide-react";
+import { CheckCircle, Download, FileText, Send, Loader2 } from "lucide-react";
+import { initEmailJS, sendReferralEmail } from "@/lib/emailjs";
 
 export default function Referrals() {
   const [formData, setFormData] = useState({
@@ -13,35 +14,46 @@ export default function Referrals() {
     patientName: "",
     patientPhone: "",
     reason: "",
-    attachment: null,
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    initEmailJS();
+  }, []);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "attachment") {
-      setFormData({ ...formData, attachment: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        referrerName: "",
-        practiceName: "",
-        referrerEmail: "",
-        patientName: "",
-        patientPhone: "",
-        reason: "",
-        attachment: null,
-      });
-    }, 5000);
+    setLoading(true);
+    setError("");
+
+    const result = await sendReferralEmail(formData);
+
+    if (result.success) {
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          referrerName: "",
+          practiceName: "",
+          referrerEmail: "",
+          patientName: "",
+          patientPhone: "",
+          reason: "",
+        });
+      }, 5000);
+    } else {
+      setError("Failed to submit referral. Please try again or email us directly at intake@brigadephysicians.com");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -141,6 +153,12 @@ export default function Referrals() {
                 </p>
               </div>
             ) : (
+              <>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                    <p className="text-red-800 font-medium">{error}</p>
+                  </div>
+                )}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -248,29 +266,25 @@ export default function Referrals() {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none"
                   ></textarea>
                 </div>
-                <div>
-                  <label
-                    htmlFor="attachment"
-                    className="block text-gray-700 font-medium mb-2"
-                  >
-                    Attach Clinical Notes (Optional)
-                  </label>
-                  <input
-                    type="file"
-                    id="attachment"
-                    name="attachment"
-                    onChange={handleChange}
-                    className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
-                  />
-                </div>
                 <button
                   type="submit"
-                  className="w-full gradient-blue text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2"
+                  disabled={loading}
+                  className="w-full gradient-blue text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Submit Referral</span>
-                  <Send size={20} />
+                  {loading ? (
+                    <>
+                      <Loader2 className="animate-spin" size={20} />
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Referral</span>
+                      <Send size={20} />
+                    </>
+                  )}
                 </button>
               </form>
+              </>
             )}
           </div>
         </div>

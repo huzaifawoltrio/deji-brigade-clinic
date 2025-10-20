@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send, Printer } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Printer, Loader2 } from "lucide-react";
+import { initEmailJS, sendContactEmail } from "@/lib/emailjs";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,12 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    initEmailJS();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -23,10 +30,28 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setLoading(true);
+    setError("");
+
+    const result = await sendContactEmail(formData);
+
+    if (result.success) {
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      setTimeout(() => setSubmitted(false), 5000);
+    } else {
+      setError("Failed to send message. Please try again or contact us directly.");
+    }
+
+    setLoading(false);
   };
 
   const contactInfo = [
@@ -111,6 +136,12 @@ export default function Contact() {
                   <p className="text-green-800 font-medium">
                     Thank you for your message! We'll be in touch soon.
                   </p>
+                </div>
+              )}
+
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                  <p className="text-red-800 font-medium">{error}</p>
                 </div>
               )}
 
@@ -219,10 +250,20 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full gradient-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover-lift shadow-lg flex items-center justify-center space-x-2"
+                  disabled={loading}
+                  className="w-full gradient-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover-lift shadow-lg flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Send Message</span>
-                  <Send size={20} />
+                  {loading ? (
+                    <>
+                      <Loader2 className="animate-spin" size={20} />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send size={20} />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
