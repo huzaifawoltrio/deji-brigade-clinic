@@ -54,7 +54,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <img
-              src="/4.jpg"
+              src="/4.jpeg"
               alt="Clinic interior"
               className="rounded-2xl shadow-2xl w-full"
             />

@@ -154,7 +154,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-on-scroll">
               <img
-                src="/3.jpg"
+                src="/3.jpeg"
                 alt="Compassionate care"
                 className="rounded-2xl shadow-2xl w-full"
               />

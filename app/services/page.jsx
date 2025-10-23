@@ -27,7 +27,7 @@ export default function Services() {
       description:
         "Transcranial Magnetic Stimulation (TMS) is a non-invasive, FDA-approved treatment for depression, OCD, PTSD, and other mood disorders.",
       imageUrl:
-        "/2.jpg",
+        "/2.jpeg",
     },
     {
       icon: <Monitor className="w-12 h-12 text-primary-500 mb-6" />,

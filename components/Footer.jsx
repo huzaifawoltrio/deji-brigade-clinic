@@ -127,12 +127,6 @@ export default function Footer() {
               >
                 HIPAA Notice
               </Link>
-              <Link
-                href="/telehealth-consent"
-                className="hover:text-primary-400 transition-colors"
-              >
-                Telehealth Consent
-              </Link>
             </div>
           </div>
         </div>
